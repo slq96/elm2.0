@@ -1,47 +1,47 @@
 <template>
-   <div class="ZHXX">
-    <div class="topmy">
-      <img @click="going()" src="../../../static/imgs/jian.png" alt="">
-      <h3>账户信息</h3>
-      </div>
+	<div class="ZHXX">
+		<div class="topmy">
+			<img @click="going()" :src="jian" alt="">
+			<h3>账户信息</h3>
+		</div>
 
-
-    <div class="xxid">
-         <div class="topPic">
-        <p>头像</p>
-        <img class="pic02" src="../../../static/imgs/jianyou.png" alt="">
-       <p>
-    <input type="file" id="file_3" onchange="settu('file_3','preview3')" style="display: none;" />
-					<label for="file_3">
-						<img id="preview3" style="width: 50px;height: 50px; border-radius: 25px;" src="../../../static/imgs/topPict.png"/>						
+		<div class="xxid">
+			<div class="topPic">
+				<p>头像</p>
+				<p style="display:inline-block">
+					<input type="file" id="file_3" :onchange="settu('file_3','preview3')" style="display: none;" />
+					<label for="file_3" style="display:inline-block">
+						<img id="preview3" style="width: 50px;height: 50px; border-radius: 25px;" :src="topPict"/>						
 					</label >
 </p>
+        <img class="pic02" :src="jianyou" alt="">
+       
         
          </div>
          <div @click="YHM()" class="YHM">
              <p>用户名</p>
-             <img src="../../../static/imgs/jianyou.png" alt="">
-             <span>1231231</span>
+             <img :src="jianyou" alt="">
+             <span>{{$store.state.userName}}</span>
              
          </div>
          <!-- 收货地址 -->
          <div @click="SHDz()" class="SHDZ">
              <p>收货地址</p>
              <span></span>
-             <img src="../../../static/imgs/jianyou.png" alt="">
+             <img :src="jianyou" alt="">
          </div>
          <!-- 绑定手机 -->
-        <p>绑定手机</p>
+        <p style="background-color:#f2f2f2">绑定手机</p>
         <div @click="bvh=!bvh" class="BDSJ">
-            <img src="../../../static/imgs/sj.png" alt="">
-             <p>绑定手机</p>
-             <img src="../../../static/imgs/jianyou.png" alt="">
+            <img :src="sj" alt="">
+             <p >绑定手机</p>
+             <img :src="jianyou" alt="">
          </div>
          <!-- 安全设置 -->
-         <p>安全设置</p>
+         <p style="background-color:#f2f2f2">安全设置</p>
          <div @click="DLmm()" class="DLMM">
              <p>登录密码</p>
-             <img src="../../../static/imgs/jianyou.png" alt="">
+             <img :src="jianyou" alt="">
              <span>修改</span>
              
          </div>
@@ -239,12 +239,21 @@ button{
 
 </style>
 <script>
-    export default{
+   	import jian from '../../../static/imgs/jian.png'
+	import jianyou from '../../../static/imgs/jianyou.png'
+	import topPict from '../../../static/imgs/topPict.png'
+	import sj from '../../../static/imgs/sj.png'
+	export default{
         name:"ZHXX",
         data(){
             return{
               hvb:false,
-              bvh:false
+              bvh:false,
+              jian,
+              jianyou,
+              topPict,
+              sj
+
             }
         },
         methods:{
@@ -268,58 +277,14 @@ button{
                 name:"findmima"
              })
          },
-            settu(val1, val2){
-                    //下面用于图片上传预览功能
-// function setImagePreview(val1, val2) {
-	//文件
+             settu(val1, val2){
 	var docObj = document.getElementById(val1);
 	//图片
 	var imgObjPreview = document.getElementById(val2);
-	if(docObj.files && docObj.files[0]) {
-		//火狐下，直接设img属性
-		//				imgObjPreview.style.display = 'block';
-		//				imgObjPreview.style.width = '50px';
-		//				imgObjPreview.style.height = '50px';
-		//imgObjPreview.src = docObj.files[0].getAsDataURL();
-		//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
-		imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
-	} else {
-		//IE下，使用滤镜
-		docObj.select();
-		var imgSrc = document.selection.createRange().text;
-		var localImagId = document.getElementById("localImag");
-		//必须设置初始大小
-		//				localImagId.style.width = "50px";
-		//				localImagId.style.height = "50px";
-		//				//图片异常的捕捉，防止用户修改后缀来伪造图片
-		//				try {
-		//					localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-		//					localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
-		//				} catch(e) {
-		//					alert("您上传的图片格式不正确，请重新选择!");
-		//					return false;
-		//				}
-		imgObjPreview.style.display = 'none';
-		document.selection.empty();
-	}
-	//			alert($("#preview3").attr("src"))
     return true;
-    //图片转化64位 
-
-$("#file_3").change(function() {
-	run(this, function(data) {
-		$('#preview3').attr('src', data);
-		//存储图片
-		alert("妆花完成")
-		console.log(data)
-	});
-});
-
-
+    
 }
-
-            }
-        // }
+           }
     }
     
 

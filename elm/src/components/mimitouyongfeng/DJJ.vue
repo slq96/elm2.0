@@ -1,7 +1,7 @@
 <template>
     <div class="daijintop">
          <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>我的优惠</h3>
       </div>
       <div class="Body">
@@ -21,8 +21,17 @@
 </template>
 
 <script>
+import jian from '../../../static/imgs/jian.png'
+
+
+
 export default {
             name:"Djj",
+            data(){
+                return{
+                   jian
+                }
+            },
             methods:{
                 Sm(){
                     this.$router.push({

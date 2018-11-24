@@ -1,7 +1,7 @@
 <template>
     <div class="MYJFTOp">
      <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>历史红包</h3>
        </div>
 
@@ -17,7 +17,7 @@
       
       </div>
        <p>最近30天积分记录</p>
-       <p><img src="/static/imgs/zanwu.png" alt=""><span>
+       <p><img :src="zanwu" alt=""><span>
           暂无明细记录</span></p>
 
 
@@ -27,8 +27,17 @@
     </div>
 </template>
 <script>
+
+import jian from '../../../static/imgs/jian.png'
+import zanwu from '../../../static/imgs/zanwu.png'
     export default{
         name:"MYJF",
+    data(){
+        return{
+            jian,
+            zanwu
+        }
+    },
         methods:{
             back(){
                 this.$router.back();

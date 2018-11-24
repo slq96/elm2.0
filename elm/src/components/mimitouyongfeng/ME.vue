@@ -5,20 +5,15 @@
       <h3>我的</h3>
       </div>
      <div @click="hoing()" class="cd">
-      <!-- <img src="/static/imgs/topPict.png" alt=""> -->
-
-
-
-
-
+      <img :src="topPict" alt="">
 
       <div class="Number">
-      <p>username</p>
+      <p>{{$store.state.userName}}</p>
       <p class="numberID">
-      <img src="/static/imgs/shouji.png" alt="">
+      <img :src="shouji" alt="">
       <span>暂无绑定手机号</span>
       </p>
-        <img class="youjiantou" src="/static/imgs/baiseyou.png" alt="">
+        <img class="youjiantou" :src="baiseyou" alt="">
       </div>
      </div>
      <!-- 余额 -->
@@ -42,24 +37,24 @@
      <div class="GRZX">
        <div class="Dd">
            <router-link to="/mydd">
-           <img src="/static/imgs/dingdan.png" alt=""> 
+           <img :src="dingdan" alt=""> 
        <p>
-           我的订单 <span><img src="/static/imgs/youjiantou.png" alt=""></span>
+           我的订单 <span><img :src="youjiantou" alt=""></span>
        </p>
        </router-link>
        
        </div>
        <div class="Jfsc">
            <router-link to="/myjfsc">
-        <img src="/static/imgs/jfsc.png" alt="">
-        <p>积分商城<span><img src="/static/imgs/youjiantou.png" alt=""></span></p>
+        <img :src="jfsc" alt="">
+        <p>积分商城<span><img :src="youjiantou" alt=""></span></p>
         </router-link>
         
        </div>
        <div class="Hyk">
            <router-link to="/myhyk">
-       <img src="/static/imgs/huangguan.png" alt="">
-       <p>饿了么会员卡<span><img src="/static/imgs/youjiantou.png" alt=""></span>
+       <img :src="huangguan" alt="">
+       <p>饿了么会员卡<span><img :src="youjiantou" alt=""></span>
        </p>
        </router-link>
        
@@ -70,17 +65,17 @@
       <div class="GRZX1">
      <div class="Fwzx">
          <router-link to="/myfuwu">
-     <img src="/static/imgs/fuwuzhongxin.png" alt="">
+     <img :src="fuwuzhongxin" alt="">
      <p>
-      服务中心<span><img src="/static/imgs/youjiantou.png" alt=""></span>
+      服务中心<span><img :src="youjiantou" alt=""></span>
      </p>
      </router-link>
      
      </div>
      <div class="elmApp">
          <router-link to="/elmeAPP">
-       <img src="/static/imgs/elme.png" alt="">
-       <p>下载饿了么App<span><img src="/static/imgs/youjiantou.png" alt=""></span></p>
+       <img :src="elme" alt="">
+       <p>下载饿了么App<span><img :src="youjiantou" alt=""></span></p>
        </router-link>
        
      </div>
@@ -227,11 +222,32 @@
 </style>
 <script>
 import jian from '../../../static/imgs/jian.png'
+import youjiantou from '../../../static/imgs/youjiantou.png'
+import topPict from '../../../static/imgs/topPict.png'
+import shouji   from '../../../static/imgs/shouji.png'
+import baiseyou   from '../../../static/imgs/baiseyou.png'
+import dingdan   from '../../../static/imgs/dingdan.png'
+import jfsc   from '../../../static/imgs/jfsc.png'
+import huangguan  from '../../../static/imgs/huangguan.png'
+import fuwuzhongxin  from '../../../static/imgs/fuwuzhongxin.png'
+import elme from '../../../static/imgs/elme.png'
+
+
+
     export default{
      name:"ME",
      data(){
          return{
-             jian
+             jian,
+             youjiantou,
+             topPict,
+             shouji,
+             baiseyou,
+             dingdan,
+             jfsc,
+             huangguan,
+             fuwuzhongxin,
+             elme
          }
      },
      methods:{

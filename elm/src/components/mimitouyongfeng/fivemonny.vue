@@ -1,24 +1,24 @@
 <template>
     <div class="TuiJian">
      <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>推荐有奖</h3>
       </div>
      <div class="Bigpic">
-<img src="/static/imgs/bigpicA.png" alt="">
+<img :src="bigpicA" alt="">
      </div>
     <div class="fenxiang">
      <p @click="bvh=!bvh">
-         <img src="/static/imgs/WXin.png" alt="">
+         <img :src="WXin" alt="">
          <span>邀请微信好友</span>
      </p>
      <p @click="bvh=!bvh">
-         <img src="/static/imgs/QQ.png" alt="">
+         <img :src="QQ" alt="">
            <span>邀请QQ好友</span>
 
      </p>
      <p @click="bvh=!bvh">
-         <img src="/static/imgs/erweima.png" alt="">
+         <img :src="erweima" alt="">
          <span>面对面邀请</span>
      </p>
     </div>
@@ -30,32 +30,43 @@
         成功邀请<span><h3>0</h3>人</span> 
      </p>
      <p>-收益明细-</p>
-    <img src="/static/imgs/backhongbao.png" alt="">
-
-
-
+    <img :src="backhongbao" alt="">
     </div>
        <div v-if="bvh" class="SJbdapp">
        <p>!</p>
        <h4>请在手机APP中打开</h4>
        <p v-if="bvh" @click="bvh=!bvh">确认</p>
        </div>
-
-
-
-
-
-
     </div>
 </template>
 
 <script>
+
+import backhongbao from '../../../static/imgs/backhongbao.png'
+import jian from '../../../static/imgs/jian.png'
+import erweima from '../../../static/imgs/erweima.png'
+import QQ from '../../../static/imgs/QQ.png'
+import WXin from '../../../static/imgs/WXin.png'
+import bigpicA from '../../../static/imgs/bigpicA.png'
+
+
+
 export default {
   name: "five",
   data(){
      return{
          hvb:false,
-              bvh:false
+              bvh:false,
+              backhongbao,
+              jain,
+          QQ,
+          bigpicA,
+          WXIn,
+          erweima
+
+
+
+
      }
   },
   methods: {

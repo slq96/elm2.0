@@ -1,7 +1,7 @@
 <template>
     <div class="topYouhui">
     <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>我的优惠</h3>
       </div>
       <!-- 红包 -->
@@ -60,7 +60,7 @@
            </li>
        </ul>
        <p>商品类:快餐便当,特色菜列,小吃夜宵,甜品饮品,异国料理</p>
-       <p @click="LSHB()">查看历史红包<img src="../../../static/imgs/jianyou.png" alt=""></p>
+       <p @click="LSHB()">查看历史红包<img :src="jianyou" alt=""></p>
      </div>
       <!-- 查看历史红包 -->
           
@@ -240,8 +240,19 @@
 }
 </style>
 <script>
+
+import jian from '../../../static/imgs/jian.png'
+import jianyou from '../../../static/imgs/jianyou.png'
+
   export default{
       name:"hongbao",
+        data(){
+            return{
+              jian,
+              jianyou
+            }
+        },
+
        methods:{   
           DH(){
              this.$router.push({

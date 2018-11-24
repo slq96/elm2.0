@@ -1,25 +1,10 @@
 <template>
     <div class="Mydd">
       <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>会员中心</h3>
       </div>
-      <div class="content1">
-        <p>为账户<span>1235555111</span>购买会员</p>
-        <div class="huiyuan">
-         <p>
-             会员特权
-             <span>会员说明<img src="../../../static/imgs/jianyou.png" alt=""></span>
-         </p>
-           <p>
-               <img src="" alt="">
-           </p>
-           <p>
-               <img src="" alt="">
-           </p>
-           
-        </div>
-      </div>
+        
     </div>
 </template>
 <style scoped>
@@ -46,8 +31,15 @@
   }
 </style>
 <script>
+
+import jian from '../../../static/imgs/jian.png'
 export default{
     name:"myhyk",
+    data(){
+        return{
+            jian
+        }
+    },
     methods:{
         back(){
             this.$router.back();

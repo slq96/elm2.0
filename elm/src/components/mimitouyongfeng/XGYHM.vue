@@ -1,7 +1,7 @@
 <template>
     <div class="topXG">
     <div class="topmy">
-  <router-link to="/ZHXX"><img src="/static/imgs/jian.png" alt=""></router-link>
+  <router-link to="/ZHXX"><img :src="jian" alt=""></router-link>
       <h3>修改用户名</h3>
       </div>
      <div class="XGcontent">
@@ -68,18 +68,24 @@
 
 </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
 export default {
  name:"XGYHM",
  data(){
    return{
-     lengths:[]
+     lengths:'',
+     jian
    } 
  },
  methods:{
       len(){
-          console.log(lengg.length);
+          this.$store.state.userName=this.lengths;
+          
+          alert("修改成功");
+          this.$router.back();
       }
-  
+     
+    
    
  }
 };

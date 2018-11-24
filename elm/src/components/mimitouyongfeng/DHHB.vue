@@ -1,7 +1,7 @@
 <template>
     <div class="topDH">
          <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>兑换红包</h3>
       </div>
        <div class="Dhm">
@@ -102,6 +102,11 @@
    }
     </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
+
+
+
+
     export default{
         name:"DHHB",
         methods:{
@@ -112,6 +117,7 @@
         data(){
                  return{
                   ALDH:[],
+                  jian
                  }
         },
         created(){

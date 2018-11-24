@@ -1,7 +1,7 @@
 <template>
     <div class="toptext">
      <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>{{$store.state.futop}}</h3>
       </div>
       <div>
@@ -36,7 +36,7 @@
 
 </style>
 <script>
-import { Loading } from 'element-ui';
+import jian from '../../../static/imgs/jian.png'
     export default{
         name:"Ntext",
         data(){
@@ -45,7 +45,8 @@ import { Loading } from 'element-ui';
                 con:"",
                 one:"",
                    ALtext:[],
-                   ALLkeys:["supervipContent","signContent","rankContent","pointtextContent","phototutorialContent","paymentContent","otherContent","ontimeContent","memberTimesContent","memberPartCutContent","memberFullCutContent","memberContent","hongbaoContent","freshmanContent","forgotContent","discountContent","disclaimerContent","couponContent","businessContent","balanceContent","awesomeRestaurantContent","anonymousBuyContent","activityContent"]
+                   ALLkeys:["supervipContent","signContent","rankContent","pointtextContent","phototutorialContent","paymentContent","otherContent","ontimeContent","memberTimesContent","memberPartCutContent","memberFullCutContent","memberContent","hongbaoContent","freshmanContent","forgotContent","discountContent","disclaimerContent","couponContent","businessContent","balanceContent","awesomeRestaurantContent","anonymousBuyContent","activityContent"],
+                   jian
             }
         },
         methods:{

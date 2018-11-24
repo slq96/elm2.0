@@ -52,7 +52,6 @@ import { Loading } from 'element-ui';
 		},
 		methods:{
 			getCode(){
-
         		const url = "https://elm.cangdu.org/v1/captchas";
        			this.$http({
           			method: 'post',

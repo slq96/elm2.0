@@ -2,7 +2,7 @@
      <!-- 新增地址 -->
      <div class="topXZDZ">
       <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>新增地址</h3>
       </div>
      <div class="inpbox">
@@ -11,7 +11,7 @@
          <input type="text" name="" id="" placeholder="请填写详细送餐地址">
          <input type="text" name="" id="" placeholder="请填写能够联系到您的手机号">
          <input type="text" name="" id="" placeholder="备用联系电话(选填)">
-         <button>新增地址</button>
+         <button @click="nowXX()">新增地址</button>
               
      </div>
 
@@ -61,11 +61,38 @@
   }
 </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
     export default{
         name:"XZDZ",
+        data(){
+            return{
+             xixi:[],
+             jian
+            }
+        },
         methods:{
             back(){
                 this.$router.back();
+            },
+            nowXX(){
+                for(let i=0;i<5;i++){
+                     if($(".inpbox input:eq("+i+")").val()==''){
+                  alert("请写完整");
+                  break;
+              }else{
+                                  
+              }                   
+                }
+                this.xixi={
+                      name:$(".inpbox input:eq(0)").val(),
+                       abb:$(".inpbox input:eq(1)").val(),
+                        xqdz:$(".inpbox input:eq(2)").val(),
+                         phone:$(".inpbox input:eq(3)").val(),
+                          phone2:$(".inpbox input:eq(4)").val(),
+
+                  }
+               this.$store.state.adds.push(this.xixi);
+               console.log( this.$store.state.adds)
             }
         }
     }

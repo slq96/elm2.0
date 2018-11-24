@@ -5,41 +5,40 @@
             <p>订单详情</p>
         </div>
         <div class="por">
-            <img :src="'//elm.cangdu.org/img/'+orde._doc.restaurant_image_url">
-             <p>{{orde._doc.status_bar.title}}</p>
+            <img :src="orde.image_url">
+             <p>{{orde.name}}</p>
              <span>再来一单</span>
         </div>
         <div class="Effect">
             <div class="one">
-               <img :src="'//elm.cangdu.org/img/'+orde._doc.restaurant_image_url">
-               <p>{{orde._doc.restaurant_name}}</p>
-               <span @click="$router.push({name:'add'})"> > </span>
+               <img :src="orde.image_url">
+               <p>{{orde.name}}</p>
+               <span @click="$router.push({name:'wm2shop'})"> > </span>
             </div>
             <div class="two">
-                <div>{{orde._doc.basket.group[0][0].name}}</div>
-                <span>￥{{orde._doc.basket.group[0][0].price}}</span>
-                <p>x{{orde._doc.basket.group[0][0].quantity}}</p>
+                <div>{{orde.description}}</div>
+                <span>￥{{orde.float_minimum_order_amount}}</span>
+                <p>x{{orde.float_delivery_fee}}</p>
             </div>
             <div class="three">
-                <p>{{orde._doc.basket.deliver_fee.name}}</p>
-                <span>{{orde._doc.basket.deliver_fee.price}}</span>
+                <p>配送费</p>
+                <span>{{orde.float_delivery_fee}}</span>
             </div>
             <div class="four">
-                <p>实付{{orde._doc.total_amount}}.00</p>
+                <p>实付{{orde.rating_count}}.00</p>
             </div>
         </div>
         <div class="dist">
             <p id="ps">配送信息</p>
-            <p id="sj">送达时间 : {{orde.deliver_time}}</p>
-            <p id="dz1">送货地址 : {{orde.addressDetail}}</p>
-            <p id="dz2">{{orde.phone}}</p>
+            <p id="sj">送达时间 : {{orde.order_lead_time}}</p>
+            <p id="dz1">送货地址 : {{orde.address}}</p>
+            <p id="dz2">手机号码 : {{orde.phone}}</p>
             <p id="fs">配送方式 : 蜂鸟专送</p>
         </div>
     </div>
 </template>
 
 <script>
-import { Loading } from 'element-ui';
 let imgback = require('../../../../static/img/back.png');
 export default {
   name: "ddxq",
@@ -50,20 +49,16 @@ export default {
     };
   },
   created() {
-    let loadingInstance1 = Loading.service({ fullscreen: true,text:'加载中...' });
-		
-    this.$http
-      .get(
-        "https://elm.cangdu.org/bos/v1/users/" +
-          this.$store.state.user_id +
-          "/orders/" +
-          this.$store.state.orders +
-          "/snapshot"
-      )
-      .then(response => {	 loadingInstance1.close();
-        this.orde = response.data;
-      });
-  },
+    let apishop = "https://elm.cangdu.org/shopping/restaurants?latitude=31.22967&longitude=121.4762";
+			this.$http.get(apishop).then(
+				(response) => {
+					for(let i = 0; i < response.data.length; i++) {
+						response.data[i].image_url = "//elm.cangdu.org/img/" + response.data[i].image_path;
+					}
+					this.orde = response.data[0];
+					this.$store.state.shop=this.orde;
+				});
+		},
   methods: {
     back() {
       this.$router.back();
@@ -223,11 +218,15 @@ export default {
   color: #666;
 }
 #dz1 {
+	width:95%;
   margin: 0.25rem 0;
   color: #666;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 #dz2 {
-  margin-left: 0.7rem;
   color: #666;
 }
 #fs {

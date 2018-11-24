@@ -1,7 +1,7 @@
 <template>
       <div class="topyue">
       <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>我的余额</h3>
       </div>
       <div class="topblue">
@@ -15,7 +15,7 @@
       
       </div>
        <p>交易明细</p>
-       <p><img src="/static/imgs/zanwu.png" alt=""><span>
+       <p><img :src="zanwu" alt=""><span>
           暂无明细记录</span></p>
 
     </div>
@@ -113,8 +113,16 @@
    }
 </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
+import zanwu from '../../../static/imgs/zanwu.png'
     export default{
         name:"YUE",
+        data(){
+            return{
+            jian,
+            zanwu
+            }
+        },
         methods:{
             back(){
                 this.$router.back();

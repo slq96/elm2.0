@@ -1,7 +1,7 @@
 <template>
     <div class="LShbtop">
        <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>历史红包</h3>
        </div>
         <div class="ul1">
@@ -136,7 +136,7 @@
            </li>
        </ul>
        <p>商品类:快餐便当,特色菜列,小吃夜宵,甜品饮品,异国料理</p>
-       <p>查看历史红包<img src="../../../static/imgs/jianyou.png" alt=""></p>
+       <p>查看历史红包<img :src="jianyou" alt=""></p>
      </div>
 
 
@@ -264,8 +264,17 @@
 
 </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
+import jianyou from '../../../static/imgs/jianyou.png'
+
      export default{
          name:"LSHB",
+         data(){
+             return{
+                 jian,
+                 jianyou
+             }
+         },
          methods:{
              back(){
                  this.$router.back();

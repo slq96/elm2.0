@@ -25,7 +25,7 @@ import config2 from '../components/senlaoshi/zujian/config2'
 import config3 from '../components/senlaoshi/zujian/config3'
 import ddxq from '../components/senlaoshi/zujian/ddxq'
 
-import MEobj from '../components/mimitouyongfeng/ME'
+//import MEobj from '../components/mimitouyongfeng/ME'
 import Mydd from "../components/mimitouyongfeng/mydd"
 import Myjfsc from "../components/mimitouyongfeng/myjfsc"
 import Myhyk from "../components/mimitouyongfeng/myhyk"

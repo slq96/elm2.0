@@ -1,12 +1,21 @@
 <template>
     <div class="topBjdz">
         <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>编辑地址</h3>
       <p @click="txt()">编辑</p>
       </div>
       <div class="Libox1">
       <ul class="ulbox">
+          <li :key="index" v-for="(val,index) in $store.state.adds">
+            <p>
+          {{val.name}}
+            </p>
+            <p>
+           {{val.phone}}
+            </p>
+            <img v-if="non1" @click="SC(index)" :src="chahao" alt="">
+          </li>
           <li>
             <p>
             2楼尚中尚
@@ -14,11 +23,11 @@
             <p>
             1366666666
             </p>
-            <img v-if="non1" @click="SC()" src="/static/imgs/chahao.png" alt="">
+            <img v-if="non1"  :src="chahao" alt="">
           </li>
       </ul>
       <p>新增地址<img @click="goingto()" 
-      src="/static/imgs/jianyou.png" alt=""></p>
+      :src="jianyou" alt=""></p>
       </div>
       
         
@@ -89,10 +98,18 @@
   }
 </style>
 <script>
+import jian from '../../../static/imgs/jian.png'
+import jianyou from '../../../static/imgs/jianyou.png'
+import chahao from '../../../static/imgs/chahao.png'
     export default{
         data(){
             return {
-                 non1:false
+                 non1:false,
+                 jian,
+                 jianyou,
+                 chahao,
+
+
             }
            
         },
@@ -105,8 +122,8 @@
                 name:"Xzdz"
             })
              },
-             SC(){
-                 $(".ulbox li").css("display","none");
+             SC(a){
+                 this.$store.state.adds.splice(a,1)
              },
              txt(){
                

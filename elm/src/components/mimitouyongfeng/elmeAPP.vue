@@ -1,11 +1,11 @@
 <template>
     <div class="APPvue">
         <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>下载</h3>
       </div>
       <div class="tent">
-      <img src="/static/imgs/elmtubiao.png" alt="">
+      <img :src="elmtubiao" alt="">
       <p>下载饿了么APP</p>
       <button>下载</button>
       </div>
@@ -61,8 +61,18 @@
 
 </style>
 <script>
+
+import jian from '../../../static/imgs/jian.png'
+import elmtubiao from '../../../static/imgs/elmtubiao.png'
+
 export default{
       name:"elmeAPP",
+      data(){
+         return{
+             elmtubiao,
+             jian
+         } 
+      },
       methods:{
           back(){
               this.$router.back();

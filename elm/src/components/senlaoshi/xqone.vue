@@ -27,7 +27,7 @@
 			</div>
 			<ul class="xx-ul">
         <!-- 遍历数组 -->
-				<li :key="index" v-for="(value,index) in this.$store.state.shopAll">
+				<li @click="jindian(value)" :key="index" v-for="(value,index) in this.$store.state.shopAll">
 				 <img :src='["//elm.cangdu.org/img/"+value.image_path]'/>
 					<div class="box1">
 						<h4><span>品牌</span>{{value.name}}<p><span>保准票</span></p></h4>
@@ -113,25 +113,25 @@ export default {
       this.$router.push({name:"waimai"}) ;
      
     },
+    jindian(value){
+    	value.image_url = "//elm.cangdu.org/img/"+value.image_path;
+		this.$store.state.shop = value;
+		this.$router.push({name: "wm2shop"});
+	}
 
   },
   created(){
-     let loadingInstance1 = Loading.service({ fullscreen: true,text:'加载中...' });
-	
+     
       // 获取商铺信息
       this.$http.get("https://elm.cangdu.org/shopping/restaurants?latitude="+this.$store.state.latitude+"&longitude="+this.$store.state.longitude+"&limit=10&&restaurant_category_ids[]="+this.$store.state.spid+"&order_by="+this.$store.state.orderby).then(
-					(res) => {		 loadingInstance1.close();
+					(res) => {
            this.$store.state.shopAll=res.data;
           //  console.log(this.$store.state.shopAll)
 				  
 				});
   },
   watch:{
-    // 监听各属性请求数据
-   
-
-
-
+  
   }
 
 };

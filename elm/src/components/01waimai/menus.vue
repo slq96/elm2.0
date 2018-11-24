@@ -226,7 +226,7 @@ import { Loading } from 'element-ui';
 				$(".mb-gg").css("display","block");
 			},
 			fukuan(){
-				confirm("暂不支持付款");
+				this.$router.push({name:"ddxq"});
 			},
 			jiadh(a,b){
 				$(".menus-nr>ul:eq("+a+")>li:eq("+b+")>.jiadh").css("display","block");

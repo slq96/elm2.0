@@ -1,7 +1,7 @@
 <template>
     <div class="Smtext">
      <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>红包说明</h3>
       </div>
       <div class="Q1text">
@@ -42,6 +42,10 @@
 </style>
 <script>
 import { Loading } from 'element-ui';
+
+import jian from '../../../static/imgs/jian.png'
+
+
     export default{
         name:"Hbsm",
         methods:{

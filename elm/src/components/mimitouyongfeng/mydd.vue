@@ -1,7 +1,7 @@
 <template>
     <div class="Mydd">
       <div class="topmy">
-      <img @click="back()" src="/static/imgs/jian.png" alt="">
+      <img @click="back()" :src="jian" alt="">
       <h3>我的订单</h3>
       </div>
     </div>
@@ -31,6 +31,8 @@
   }
 </style>
 <script>
+
+import jian from '../../../static/imgs/jian.png'
 export default{
     name:"mydd",
     methods:{
@@ -40,7 +42,7 @@ export default{
     },
     data(){
         return{
-
+          jian
         }
     },
     created(){

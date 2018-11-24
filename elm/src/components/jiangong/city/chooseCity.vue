@@ -16,7 +16,7 @@
 		</div>
 		<div class="recity">
 			<p>热门城市</p>
-			<li v-for="value in hotcity" :key='value.id'@click="dian(value.name,value.id)">{{value.name}}</li>
+			<li v-for="value in hotcity" :key='value.id' @click="dian(value.name,value.id)">{{value.name}}</li>
 		</div>
 		<div class="groupcity">
 			<ul v-for="(value,key,index) in group" :key='index'>

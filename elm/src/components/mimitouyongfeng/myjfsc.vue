@@ -3,7 +3,7 @@
     <div class="jfcont">
      <h2>请重新进入</h2>
      <p>请返回后重新进入积分商城</p>
-     <img @click="back()" src="/static/imgs/findno.png" alt="">
+     <img @click="back()" :src="findno" alt="">
     </div>
     </div>
 </template>
@@ -40,8 +40,14 @@ position: absolute;
 }
 </style>
 <script>
+import findno from '../../../static/imgs/findno.png'
     export default{
        name:"myjfsc",
+       data(){
+           return{
+              findno  
+           }
+       },
        methods:{
            back(){
                this.$router.back();

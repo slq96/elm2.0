@@ -4,7 +4,8 @@
 			<span @click="qusousuo()">ele.me</span> 
 			<p @click="login()" v-if="bl">登录|注册</p>
 			<img class="yhzx" @click="my()" :src="src2" v-else/>
-			<li @click="huicity()">{{this.$store.state.address}}</li>			
+			<li v-if="this.$store.state.address" @click="huicity()">{{this.$store.state.address}}</li>
+			<li @click="huicity()" v-else>选择地址</li>
 		</div>
 		<div class="bukong"></div>
 		<div class="swiper-container">
