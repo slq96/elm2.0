@@ -5,7 +5,7 @@
     	描述：
     -->
 	<div class="menus">
-		<div class="menus-ml">
+		<div class="menus-ml ">
 			<li class="lis" @click="maodian(index)" v-for="(value,index) in food">				
 				{{value.name}}
 				<div class="fennum">{{fennum[index]}}</div>
